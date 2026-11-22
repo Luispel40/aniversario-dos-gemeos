@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gael e Gabriel, 4 anos</title>
+  <meta name="description" content="Convite de aniversário de 4 anos do Gael e do Gabriel.">
+  <meta name="theme-color" content="#d55948">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@500;700;800&display=swap">
+</head>
+<body>
+<div id="viewPublic">
+  <header class="hero" id="hero">
+    <div class="p sky" data-py=".45" data-m="4"><img src="/src/assets/fundo.webp" alt="" decoding="async"></div>
+    <div class="p clouds loop" data-py=".38" data-hx="-.05" data-m="10"><img src="/src/assets/nuvens.webp" alt="" decoding="async"></div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="p predios loop" data-py=".26" data-hx="-.04" data-m="14"><img src="/src/assets/predios.webp" alt="" decoding="async"></div>
+      <div class="p ruas loop" data-py=".12" data-hx="-.08" data-m="22"><img src="/src/assets/ruas.webp" alt="" decoding="async"></div>
+      <div class="p carro" data-py=".02" data-hx=".1" data-m="34">
+        <div class="speed"><i></i><i></i><i></i><i></i></div>
+        <img src="/src/assets/carro.webp" alt="" decoding="async">
+      </div>
+    </div>
+
+    <div class="hero-text p" data-py="-.12">
+      <p class="kicker">Convite de aniversário</p>
+      <h1><span>Gael</span> <small>e</small> <span>Gabriel</span></h1>
+      <p class="age">vão fazer <b class="plate">04</b> anos</p>
+      <a class="cta" href="#rsvp" data-scroll="rsvp">Quero ir</a>
+    </div>
+  </header>
+
+  <main class="ground">
+    <div class="ground-clouds" aria-hidden="true">
+      <img class="gc gc1" src="/src/assets/nuvens.webp" alt="" data-float=".12">
+      <img class="gc gc2" src="/src/assets/nuvens.webp" alt="" data-float="-.08">
+    </div>
+
+    <section class="wrap" id="detalhes" aria-labelledby="tDetalhes">
+      <div class="holder">
+      <div class="peek peek-pais" aria-hidden="true" data-float=".05">
+        <img src="/src/assets/papai.webp" alt="">
+        <img src="/src/assets/mamae.webp" alt="">
+      </div>
+      <div class="card paper">
+        <h2 id="tDetalhes">Vem com a gente</h2>
+        <p class="lead">Uma volta de carro cheia de bolo, brincadeira e música. O motorista é o aniversariante.</p>
+        <dl class="info" id="eventoInfo"></dl>
+      </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="rsvp" aria-labelledby="tRsvp">
+      <div class="holder">
+      <div class="peek peek-meninos" aria-hidden="true" data-float=".05">
+        <img src="/src/assets/gab.webp" alt="">
+        <img src="/src/assets/gael.webp" alt="">
+      </div>
+      <div class="card paper">
+        <h2 id="tRsvp">Confirme sua presença</h2>
+        <p class="lead">Preencha seus dados e os de quem vai com você. Os anfitriões analisam o pedido e você acompanha a resposta aqui mesmo.</p>
+
+        <form id="rsvpForm" novalidate>
+          <div class="field">
+            <label for="fNome">Seu nome completo</label>
+            <input id="fNome" name="nome" type="text" autocomplete="name" maxlength="120" required>
+          </div>
+          <div class="field">
+            <label for="fCpf">Seu CPF</label>
+            <input id="fCpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14" required>
+            <p class="hint">Usamos o CPF só para identificar o seu convite.</p>
+          </div>
+          <div class="field">
+            <label for="fEmail">E-mail <span class="opt">(opcional)</span></label>
+            <input id="fEmail" name="email" type="email" autocomplete="email" maxlength="120">
+            <p class="hint">Se informar, avisamos por e-mail quando seu convite for aceito.</p>
+          </div>
+
+          <fieldset class="field deps">
+            <legend>Dependentes</legend>
+            <p class="hint">Crianças e acompanhantes que vão com você. Não precisa de CPF para eles.</p>
+            <div class="stepper" role="group" aria-label="Quantidade de dependentes">
+              <button type="button" id="depMenos" aria-label="Menos um dependente">−</button>
+              <output id="depQtd" aria-live="polite">0</output>
+              <button type="button" id="depMais" aria-label="Mais um dependente">+</button>
+              <span class="stepper-label" id="depLabel">Vou sozinho(a)</span>
+            </div>
+            <div id="depLista" class="dep-lista"></div>
+          </fieldset>
+
+          <p class="form-msg" id="rsvpMsg" role="alert" hidden></p>
+          <button class="btn primary" id="rsvpBtn" type="submit">Enviar minha confirmação</button>
+        </form>
+      </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="consulta" aria-labelledby="tConsulta">
+      <div class="card paper">
+        <h2 id="tConsulta">Já recebeu um convite?</h2>
+        <p class="lead">Digite seu CPF para ver se seu nome está na lista.</p>
+        <form id="lookupForm" class="inline-form" novalidate>
+          <div class="field grow">
+            <label for="lCpf" class="sr">CPF</label>
+            <input id="lCpf" type="text" inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" maxlength="14">
+          </div>
+          <button class="btn" type="submit">Ver meu convite</button>
+        </form>
+        <div id="resultado" class="resultado" aria-live="polite" hidden></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Gael e Gabriel, 4 anos</p>
+      <a href="#admin" class="admin-link">Área dos anfitriões</a>
+    </footer>
+  </main>
+  <canvas id="confete" aria-hidden="true"></canvas>
+</div>
+
+<div id="viewAdmin" hidden>
+  <div class="admin-bg"></div>
+  <div class="wrap admin-wrap">
+    <a href="#" class="back" id="adminVoltar">Voltar ao convite</a>
+
+    <section class="card paper login" id="loginCard">
+      <h2>Entrar como anfitrião</h2>
+      <p class="lead">Só você precisa de login. Quem recebe o link do convite entra direto.</p>
+      <form id="loginForm" novalidate>
+        <div class="field">
+          <label for="aUser">Usuário</label>
+          <input id="aUser" type="text" autocomplete="username" autocapitalize="none">
+        </div>
+        <div class="field">
+          <label for="aPass">Senha</label>
+          <input id="aPass" type="password" autocomplete="current-password">
+        </div>
+        <p class="hint" id="demoHint" hidden></p>
+        <p class="form-msg" id="loginMsg" role="alert" hidden></p>
+        <button class="btn primary" type="submit" id="loginBtn">Entrar</button>
+      </form>
+    </section>
+
+    <div id="painel" hidden>
+      <div class="painel-top">
+        <h2>Lista de convidados</h2>
+        <div class="painel-actions">
+          <button class="btn small" id="btnAtualizar" type="button">Atualizar</button>
+          <button class="btn small ghost" id="btnSair" type="button">Sair</button>
+        </div>
+      </div>
+      <p class="demo-badge" id="demoBadge" hidden>Modo demonstração: os dados ficam só neste navegador. Para valer de verdade, configure o link do Apps Script (veja o LEIAME).</p>
+
+      <div class="stats" id="stats"></div>
+
+      <section class="card paper">
+        <h3>Link do convite</h3>
+        <div class="linkbox">
+          <input id="siteLink" type="text" readonly aria-label="Link do convite">
+          <button class="btn small" id="btnCopiarSite" type="button">Copiar</button>
+          <a class="btn small whats" id="btnWhatsSite" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </section>
+
+      <section class="card paper">
+        <h3>Convidar por CPF</h3>
+        <p class="hint">A pessoa entra direto na lista. Ao abrir o link ou consultar o CPF, ela vê: “Oba, seu nome já está na lista de convidados.”</p>
+        <form id="inviteForm" class="grid-form" novalidate>
+          <div class="field">
+            <label for="iNome">Nome</label>
+            <input id="iNome" type="text" maxlength="120" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="iCpf">CPF</label>
+            <input id="iCpf" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="iEmail">E-mail <span class="opt">(opcional)</span></label>
+            <input id="iEmail" type="email" maxlength="120" autocomplete="off">
+          </div>
+          <p class="form-msg" id="inviteMsg" role="alert" hidden></p>
+          <button class="btn primary" type="submit">Convidar</button>
+        </form>
+      </section>
+
+      <div class="filters" role="tablist" aria-label="Filtrar convidados" id="filtros"></div>
+      <div id="lista" class="lista"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
