@@ -4,6 +4,7 @@ import { initPublic } from "./features/convite.js";
 import { initAdmin, showAdmin, stopPolling } from "./features/admin.js";
 import { initParallax, requestFrame } from "./features/parallax.js";
 import { initLoops } from "./features/loop.js";
+import { initFolhas } from "./features/folha.js";
 
 // Rotas por hash: "#admin" abre o painel; qualquer outra coisa mostra o convite.
 function route() {
@@ -18,5 +19,6 @@ initLoops();
 initPublic();
 initAdmin();
 initParallax();
+initFolhas();
 addEventListener("hashchange", route);
 route();

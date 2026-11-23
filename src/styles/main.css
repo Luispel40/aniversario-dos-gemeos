@@ -345,8 +345,11 @@ input[aria-invalid="true"] { border-color: var(--car); background: #fff0ea; }
 .loop .track { display: flex; width: 400%; animation: roll var(--roll, 20s) linear infinite; will-change: transform; }
 .loop .track img { width: 25%; flex: none; max-width: none; }
 .loop .track img:nth-child(even) { transform: scaleX(-1); }
-.loop .track img + img { margin-left: -1px; } /* esconde a linha fina de emenda */
-@keyframes roll { to { transform: translateX(calc(-50% + 2px)); } }
+.loop .track img + img { margin-left: -4px; } /* esconde a linha fina de emenda */
+@keyframes roll { to { transform: translateX(calc(-50% + 8px)); } }
 .ruas { --roll: 9s; }
 .predios { --roll: 30s; }
 .clouds { --roll: 110s; }
+
+/* Folha seca passando perto da câmera: na frente de tudo no topo, desfocada, sem pegar cliques. */
+.folha { position: absolute; left: 0; top: 0; z-index: 30; pointer-events: none; will-change: transform, opacity; opacity: 0; }
